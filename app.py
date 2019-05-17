@@ -18,7 +18,7 @@ class Todo(db.Model):
   title = db.Column(db.String(100), nullable=False)
   done = db.Column(db.Boolean)
 
-  def __init__(self, title, done=False):
+  def __init__(self, title, done):
     self.title = title
     self.done = done
 
@@ -27,7 +27,7 @@ class Todo(db.Model):
 def add_todo():
   if request.content_type == "application/json":
     post_data = request.get_json()
-    print(post_data)
+    
     title = post_data.get("title")
     done = post_data.get("done")
 
